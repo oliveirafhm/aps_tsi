@@ -1,0 +1,19 @@
+---
+config:
+  theme: default
+---
+sequenceDiagram
+    actor Employee
+    Employee->>anOrder: calculatePrice
+    loop
+        anOrder->>+anOrderLine: getQuantity
+        anOrderLine-->>-anOrder: quantity
+        anOrder->>+anOrderLine: getProduct
+        anOrderLine-->>-anOrder: a product
+        anOrder->>+aProduct: getPriceDetails
+        aProduct-->>-anOrder: price details
+        anOrder->>+anOrder: calculateBasePrice
+        anOrder->>+anOrder: calculateDiscounts
+        anOrder->>+aCustomer: getDiscountInfo
+        aCustomer-->>-anOrder: discount info
+    end
