@@ -1,0 +1,15 @@
+classDiagram
+    class ContaBancaria
+    class Cliente
+    %% Associação bidirecional com multiplicidade
+    ContaBancaria "*" <--> "1" Cliente
+
+    class ContaPoupanca
+    class ContaSalario
+    %% Herança
+    ContaBancaria <|-- ContaPoupanca 
+    ContaBancaria <|-- ContaSalario
+
+    class BancoDados
+    ContaBancaria : BancoDados bancoDados
+    ContaBancaria -- BancoDados
